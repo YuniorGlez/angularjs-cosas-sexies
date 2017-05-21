@@ -11,7 +11,7 @@
         $routeProvider.
             when('/', {
                 controller: 'HomeController',
-                template : '<h1> {{title}} {{2020 - 20}} </h1>'
+                templateUrl : '/views/home.html'
             })
     }
 })();
