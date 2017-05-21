@@ -9,7 +9,6 @@
     function HomeController($scope) {
         $scope.title = 'Hola mundo';
 
-
         activate();
 
         ////////////////
