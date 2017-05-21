@@ -1,3 +1,14 @@
-<div ng-repeat="comic in Home.spiderComics">
-    <h1>{{comic.name}}</h1>
+<div class="container">
+
+<div class="row">
+    <div class="text-center col-sm-3" ng-repeat="comic in Home.spiderComics">
+        <div class="thumbnail">
+        <img src="{{comic.img}}" height="150" width="100px">
+        <div class="caption">
+            <h3>{{comic.name}}</h3>
+        </div>
+        </div>
+    </div>
+</div>
+
 </div>

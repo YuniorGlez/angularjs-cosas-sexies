@@ -17,7 +17,8 @@
         ////////////////
 
         function activate() {
-            home.spiderComics = Marvel.getComicsFromSpiderman();
+            Marvel.getComicsFromSpiderman()
+                .then((comics) => home.spiderComics = comics);
         }
     }
 })();
