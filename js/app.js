@@ -5,7 +5,7 @@
         .config(routes);
 
 
-    routes.$inject = ['$routeProvider', '$locationProvider'];
+    routes.$inject = ['$routeProvider'];
 
     function routes($routeProvider) {
         $routeProvider.
@@ -17,7 +17,13 @@
             .when('/comic/:marvelName', {
                 controller: 'ComicsController',
                 controllerAs: 'Comics',
-                templateUrl: '/views/comics.html'
+                templateUrl: '/views/comics.html',
+                // Adding this resolve function, when the view entered we can collect the result
+                // inside a comics injector parameter
+                resolve: {
+                    comics: ['MarvelFactory', '$route',
+                        (MF, route) => MF.getComicsFrom(route.current.params.marvelName)]
+                }
             });
     }
 })();
