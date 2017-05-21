@@ -18,7 +18,7 @@
                 controller: 'ComicsController',
                 controllerAs: 'Comics',
                 templateUrl: '/views/comics.html',
-                // Adding this resolve function, when the view entered we can collect the result
+                // TIP 2:  Adding this resolve function, when the view entered we can collect the result
                 // inside a comics injector parameter
                 resolve: {
                     comics: ['MarvelFactory', '$route',
