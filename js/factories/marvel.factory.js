@@ -25,6 +25,7 @@
         function cleanComics(response) {
             return response.data.data.results.map((comic) => {
                 var simply = {
+                    id : comic.id,
                     name: comic.title,
                     img: comic.thumbnail.path + '.' + comic.thumbnail.extension
                 };
