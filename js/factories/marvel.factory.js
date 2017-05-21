@@ -5,20 +5,16 @@
         .module('AngularJS')
         .factory('MarvelFactory', MarvelFactory);
 
-    MarvelFactory.$inject = ['$http'];
-    function MarvelFactory($http) {
+    MarvelFactory.$inject = ['$http', 'MarvelAPIUrl', 'MarvelAPIToken'];
+    function MarvelFactory($http, MarvelAPIUrl, MarvelAPIToken) {
         var service = {
             getComicsFrom:getComicsFrom
         };
-
-        var marvelAPIUrl = "https://gateway.marvel.com:443/v1/public/";
-        var marvelAPIToken = "&apikey=9366866008a1b3a001c96913c0441ed3";
-
         return service;
 
         ////////////////
         function getComicsFrom(character) {
-            return $http.get(marvelAPIUrl + 'comics?format=comic&title='+ character + marvelAPIToken)
+            return $http.get(MarvelAPIUrl + 'comics?format=comic&title='+ character + MarvelAPIToken)
                 .then(cleanComics, errorAPI)
         }
 
