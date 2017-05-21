@@ -5,9 +5,10 @@
         .module('AngularJS')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope'];
-    function HomeController($scope) {
-        $scope.title = 'Hola mundo';
+    HomeController.$inject = [];
+    function HomeController() {
+        var vm = this;
+        vm.title = 'Hola mundo';
 
         activate();
 
