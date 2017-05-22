@@ -1,0 +1,12 @@
+<br><br>
+
+<input type="text" ng-model="newUser.name" placeholder="Name ...">
+<input type="text" ng-model="newUser.username" placeholder="username ...">
+<input type="text" ng-model="newUser.email" placeholder="email ...">
+
+<button type="button" ng-click="Resource.addNewUser(newUser)" class="btn btn-success ">Añadir</button>
+
+
+<div ng-repeat="item in ::Resource.items track by item.id">
+    {{ item | json }}
+</div>

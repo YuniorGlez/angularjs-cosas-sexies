@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('AngularJS', ['ngRoute'])
+    angular.module('AngularJS', ['ngRoute', 'ngResource'])
         .config(routes);
 
 
@@ -11,19 +11,22 @@
         $routeProvider.
             when('/', {
                 controller: 'HomeController',
-                controllerAs : 'Home',
-                templateUrl : '/views/home.html'
+                controllerAs: 'Home',
+                templateUrl: '/views/home.html'
             })
             .when('/comic/:marvelName', {
                 controller: 'ComicsController',
                 controllerAs: 'Comics',
                 templateUrl: '/views/comics.html',
-                // TIP 2:  Adding this resolve function, when the view entered we can collect the result
-                // inside a comics injector parameter
                 resolve: {
                     comics: ['MarvelFactory', '$route',
                         (MF, route) => MF.getComicsFrom(route.current.params.marvelName)]
                 }
+            })
+            .when('/resourceExample', {
+                controller: 'ResourceController',
+                controllerAs: 'Resource',
+                templateUrl: '/views/resources.html'
             });
     }
 })();
