@@ -5,8 +5,8 @@
         .module('AngularJS')
         .controller('ResourceController', ResourceController);
 
-    ResourceController.$inject = ['FakePostFactory'];
-    function ResourceController(FakePosts) {
+    ResourceController.$inject = ['FakeUsers'];
+    function ResourceController(FakeUsers) {
         var vm = this;
         vm.addNewUser = addNewUser;
 
@@ -16,14 +16,14 @@
         ////////////////
 
         function activate() {
-            FakePosts.getAll(
+            FakeUsers.getAll(
                 (users) => vm.items = users,
                 (e) => console.log(e)
             )
         }
 
         function addNewUser(newUser) {
-            FakePosts.post(newUser,
+            FakeUsers.post(newUser,
                 (newUserAdded) => console.log('New user added **', newUserAdded),
                 (e) => console.log(e)
             )
